@@ -35,7 +35,7 @@ The second microservice is a Telegram bot that receives message texts via a GET 
 
 #### Containerization and deployment
 
-Both microservices were containerized using Docker. I created a single Docker Compose file (.yaml) that describes the configuration of all required services, including Kafka, ZooKeeper (for Kafka), a Kafka UI (to view messages), Redis, and PostgreSQL. This setup allowed me to deploy the entire project architecture with just a few terminal commands.
+Both microservices were containerized using Docker. I created a single [Docker Compose file (.yaml)](https://github.com/vadimkirpikov/kafka-microservices-expample/blob/master/compose.yaml) that describes the configuration of all required services, including Kafka, ZooKeeper (for Kafka), a Kafka UI (to view messages), Redis, and PostgreSQL. This setup allowed me to deploy the entire project architecture with just a few terminal commands.
 
 #### Testing
 
