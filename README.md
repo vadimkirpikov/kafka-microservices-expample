@@ -6,7 +6,7 @@ Hello, I am very glad to meet you reading my small article. In the modern world 
 
 The main goal of the project was to familiarize myself with microservices architecture and explore asynchronous interaction between microservices. To achieve this, I developed two services:
 
-1. **HelloWorld API** – a simple API that returns a greeting message and stores data in a database.
+1. **[HelloWorld API](https://github.com/vadimkirpikov/kafka-microservices-expample/tree/master/HelloWorldApi)** – a simple API that returns a greeting message and stores data in a database.
 2. **Telegram bot** – a bot that sends messages with a 20-second delay, simulating a complex task.
 
 #### Architecture and technologies
