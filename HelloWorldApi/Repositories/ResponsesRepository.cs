@@ -8,18 +8,25 @@ using System.Threading.Tasks;
 
 namespace HelloWorldApi.Repositories;
 
-public class ResponsesRepository: IAddRepository<HelloWorldResponse>
+public class ResponsesRepository(IDbConnection dbConnection, ILogger<ResponsesRepository> logger) : IAddRepository<HelloWorldResponse>
 {
-    private readonly IDbConnection _dbConnection;
-    public ResponsesRepository(IDbConnection dbConnection)
+    public void CreateTable()
     {
-        _dbConnection = dbConnection;
-        _dbConnection.Execute(
-            "CREATE TABLE IF NOT EXISTS Responses (Text TEXT, DateTime DATETIME, IsNotified boolean);");
-    }
+        dbConnection.Execute("CREATE TABLE IF NOT EXISTS Responses (Text TEXT, DateTime DATE, IsNotified boolean);");
+        logger.LogInformation("Created table");
+	}
     public async Task AddAsync(HelloWorldResponse response)
     {
-        var query = "INSERT INTO Responses (Text, DateTime, IsNotified) VALUES (@Text, @DateTime, @IsNotified)";
-        await _dbConnection.ExecuteAsync(query, response);
+        try
+        {
+            var query = "INSERT INTO Responses (Text, DateTime, IsNotified) VALUES (@Text, @DateTime, @IsNotified)";
+            await dbConnection.ExecuteAsync(query, response);
+            logger.LogInformation("Request to add response to database");
+        }
+        catch (Exception ex)
+        {
+            logger.LogError($"Failed to insert with {ex.Message}");   
+        }
+
     }
 }

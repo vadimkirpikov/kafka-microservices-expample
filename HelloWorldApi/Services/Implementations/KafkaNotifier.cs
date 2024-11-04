@@ -9,10 +9,11 @@ public class KafkaNotifier: INotifier
 {
     private readonly IProducer<string, string> _producer;
     private readonly string _topicName;
-    public KafkaNotifier(IOptions<KafkaSettings> kafkaSettings)
+    private readonly ILogger<KafkaNotifier> _logger;
+    public KafkaNotifier(IOptions<KafkaSettings> kafkaSettings, ILogger<KafkaNotifier> logger)
     {
+        _logger = logger;
         _topicName = kafkaSettings.Value.TopicName!;
-        Console.WriteLine($"Kafka Topic Name: {_topicName}");
         var config = new ProducerConfig
         {
             BootstrapServers = kafkaSettings.Value.BootstrapServers
@@ -24,12 +25,12 @@ public class KafkaNotifier: INotifier
         try
         {
             var result = await _producer.ProduceAsync(_topicName, new Message<string, string> { Value = text });
-            Console.WriteLine($"Message: {result.TopicPartitionOffset}");
+            _logger.LogInformation($"Message: {result.TopicPartitionOffset}");
             return true;
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
+            _logger.LogError($"Error: {ex.Message}");
             return false;
         }
     }

@@ -33,6 +33,24 @@ builder.Services.AddScoped<IAddRepository<HelloWorldResponse>, ResponsesReposito
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var repository = scope.ServiceProvider.GetRequiredService<IAddRepository<HelloWorldResponse>>();
+    while (true)
+    {
+        try
+        {
+            repository.CreateTable();
+            break;
+        }
+        catch
+        {
+            continue;
+        }
+    }
+
+
+}
 app.UseSwagger();
 app.UseSwaggerUI();
 app.UseRouting();

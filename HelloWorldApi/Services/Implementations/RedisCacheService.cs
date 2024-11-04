@@ -3,7 +3,7 @@ using Microsoft.Extensions.Caching.Distributed;
 
 namespace HelloWorldApi.Services.Implementations;
 
-public class RedisCacheService(IDistributedCache cache): ICacheService
+public class RedisCacheService(IDistributedCache cache, ILogger<RedisCacheService> logger): ICacheService
 {
     public async Task<string?> GetAsync(string key)
     {
@@ -21,6 +21,7 @@ public class RedisCacheService(IDistributedCache cache): ICacheService
             AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(30)
         };
         await cache.SetStringAsync(key, value, options);
+        logger.LogInformation($"Set {key} to {value}");
     }
 
     public async Task SwapAsync(string key)
@@ -34,6 +35,7 @@ public class RedisCacheService(IDistributedCache cache): ICacheService
         {
             await SetAsync(key, "http");
         }
+        
         
     }
 }
