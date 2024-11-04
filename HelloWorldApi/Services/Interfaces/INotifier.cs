@@ -1,4 +1,6 @@
-﻿namespace HelloWorldApi.Services.Interfaces;
+﻿using System.Threading.Tasks;
+
+namespace HelloWorldApi.Services.Interfaces;
 
 public interface INotifier
 {

@@ -1,4 +1,5 @@
-﻿using HelloWorldApi.Models;
+﻿using System.Threading.Tasks;
+using HelloWorldApi.Models;
 using HelloWorldApi.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 

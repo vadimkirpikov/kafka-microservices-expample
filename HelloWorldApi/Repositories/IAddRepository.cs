@@ -1,4 +1,6 @@
-﻿namespace HelloWorldApi.Repositories;
+﻿using System.Threading.Tasks;
+
+namespace HelloWorldApi.Repositories;
 
 public interface IAddRepository<in T>
 {

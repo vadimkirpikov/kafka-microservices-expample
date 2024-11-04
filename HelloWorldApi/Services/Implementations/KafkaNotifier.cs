@@ -1,6 +1,9 @@
-﻿using Confluent.Kafka;
+﻿using System;
+using System.Threading.Tasks;
+using Confluent.Kafka;
 using HelloWorldApi.Models;
 using HelloWorldApi.Services.Interfaces;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace HelloWorldApi.Services.Implementations;

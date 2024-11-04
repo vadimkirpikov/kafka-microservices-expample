@@ -1,10 +1,12 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using HelloWorldApi.Models;
 using Npgsql;
 using Dapper;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace HelloWorldApi.Repositories;
 

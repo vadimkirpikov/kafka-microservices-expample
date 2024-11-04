@@ -1,4 +1,6 @@
-﻿namespace HelloWorldApi.Models;
+﻿using System;
+
+namespace HelloWorldApi.Models;
 
 public class HelloWorldResponse
 {
