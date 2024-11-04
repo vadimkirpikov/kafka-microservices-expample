@@ -1,8 +1,8 @@
-﻿### Research Project: exploring microservices architecture with Kafka
+﻿### Research project: exploring microservices architecture with Kafka
 
-In the modern world of software development, microservices architecture has become one of the most sought-after and efficient models. As part of my research project, I decided to get knowledge this architecture and apply my knowledge by creating two microservices that interact both synchronously (via HTTP) and asynchronously through Apache Kafka.
+Hello, I am very glad to meet you reading my small article. In the modern world of software development, microservices architecture has become one of the most sought-after and efficient models. As part of my research project, I decided to get knowledge this architecture and apply my knowledge by creating two microservices that interact both synchronously (via HTTP) and asynchronously through Apache Kafka.
 
-#### Project Objectives
+#### Project objectives
 
 The main goal of the project was to familiarize myself with microservices architecture and explore asynchronous interaction between microservices. To achieve this, I developed two services:
 
